@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* EcoLearn Play - Futuristic Gamified Environmental Education Platform */
+
+@layer base {
+  :root {
+    /* Eco-friendly color palette */
+    --background: 120 20% 98%;
+    --foreground: 150 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 20% 15%;
+
+    /* Vibrant eco-green primary */
+    --primary: 142 76% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 142 76% 65%;
+
+    /* Sky blue secondary */
+    --secondary: 213 89% 62%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Fresh leaf green */
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Earth tone muted */
+    --muted: 45 25% 92%;
+    --muted-foreground: 150 15% 40%;
+
+    /* Warning/energy orange */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 15% 88%;
+    --input: 120 15% 88%;
+    --ring: 142 76% 45%;
+
+    --radius: 1rem;
+
+    /* Glassmorphism effects */
+    --glass-bg: 0 0% 100% / 0.1;
+    --glass-border: 0 0% 100% / 0.2;
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+    /* Gamification colors */
+    --xp-gold: 45 100% 55%;
+    --badge-bronze: 25 75% 47%;
+    --badge-silver: 220 9% 75%;
+    --badge-diamond: 200 100% 85%;
+
+    /* Animation variables */
+    --float-duration: 6s;
+    --glow-duration: 2s;
+    --pulse-duration: 2s;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark eco-friendly theme */
+    --background: 150 15% 8%;
+    --foreground: 120 20% 95%;
+
+    --card: 150 15% 12%;
+    --card-foreground: 120 20% 95%;
+
+    --popover: 150 15% 12%;
+    --popover-foreground: 120 20% 95%;
+
+    --primary: 142 76% 55%;
+    --primary-foreground: 150 15% 8%;
+    --primary-glow: 142 76% 75%;
+
+    --secondary: 213 89% 72%;
+    --secondary-foreground: 150 15% 8%;
+
+    --accent: 160 84% 49%;
+    --accent-foreground: 150 15% 8%;
+
+    --muted: 150 10% 18%;
+    --muted-foreground: 120 15% 65%;
+
+    --warning: 38 92% 60%;
+    --warning-foreground: 150 15% 8%;
+
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 150 15% 8%;
+
+    --border: 150 10% 20%;
+    --input: 150 10% 20%;
+    --ring: 142 76% 55%;
+
+    /* Dark glassmorphism */
+    --glass-bg: 0 0% 0% / 0.2;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer components {
+  /* Glassmorphism effects */
+  .glass {
+    @apply backdrop-blur-lg border border-white/20;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-lg border border-white/10;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  /* Gamified components */
+  .xp-bar {
+    @apply relative h-4 bg-muted rounded-full overflow-hidden;
+  }
+
+  .xp-bar-fill {
+    @apply h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full transition-all duration-1000 ease-out;
+    background: linear-gradient(90deg, hsl(var(--xp-gold)), hsl(var(--warning)));
+  }
+
+  .badge-bronze {
+    @apply bg-gradient-to-br;
+    background: linear-gradient(135deg, hsl(var(--badge-bronze)), hsl(var(--badge-bronze) / 0.8));
+  }
+
+  .badge-silver {
+    @apply bg-gradient-to-br;
+    background: linear-gradient(135deg, hsl(var(--badge-silver)), hsl(var(--badge-silver) / 0.8));
+  }
+
+  .badge-gold {
+    @apply bg-gradient-to-br;
+    background: linear-gradient(135deg, hsl(var(--xp-gold)), hsl(var(--xp-gold) / 0.8));
+  }
+
+  .badge-diamond {
+    @apply bg-gradient-to-br;
+    background: linear-gradient(135deg, hsl(var(--badge-diamond)), hsl(var(--badge-diamond) / 0.8));
+  }
+
+  /* Hero gradients */
+  .hero-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary)) 0%,
+      hsl(var(--secondary)) 50%,
+      hsl(var(--accent)) 100%);
+  }
+
+  .eco-gradient {
+    background: linear-gradient(135deg,
+      hsl(var(--primary) / 0.9) 0%,
+      hsl(var(--accent) / 0.9) 100%);
+  }
+
+  /* Animation classes */
+  .float-animation {
+    animation: float var(--float-duration) ease-in-out infinite;
+  }
+
+  .glow-animation {
+    animation: glow var(--glow-duration) ease-in-out infinite alternate;
+  }
+
+  .pulse-gentle {
+    animation: pulse-gentle var(--pulse-duration) ease-in-out infinite;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+  }
+
+  .nav-link {
+    @apply relative transition-colors duration-300;
+  }
+  
+  .nav-link::after {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    content: '';
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+}
+
+@layer base {
+  /* Keyframes for animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      filter: drop-shadow(0 0 5px hsl(var(--primary) / 0.5));
+    }
+    to {
+      filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.8));
+    }
+  }
+
+  @keyframes pulse-gentle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes confetti {
+    0% {
+      transform: rotate(0deg) translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(720deg) translateY(-100vh);
+      opacity: 0;
+    }
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
